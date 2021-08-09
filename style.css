@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: antiquewhite;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  overflow-x: hidden;
+  padding-bottom: 1000px;
+}
+
+nav {
+  background-color: rgb(32, 171, 252);
+  display: flex;
+  justify-content: space-around;
+  color: rgb(255, 255, 255);
+  height: 50px;
+  align-items: center;
+  font-weight: bold;
+}
+
+.brand {
+  position: relative;
+}
+
+.brand h4 {
+  font-size: 18px;
+  font-family: cursive;
+}
+
+.brand img {
+  width: 25px;
+  height: 30px;
+  position: absolute;
+  left: -30px;
+  top: -3px;
+}
+
+nav ul {
+  display: flex;
+  width: 40%;
+  justify-content: space-evenly;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+nav ul li a:hover {
+  color: red;
+  background-color: white;
+}
+
+/* Menu-Toggle */
+.menu-toggle {
+  display: none;
+  height: 25px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 40px;
+  height: 5px;
+  background-color: rgb(207, 235, 248);
+  border-radius: 3px;
+  transition: all 0.5s;
+  z-index: 500;
+}
+
+/* Koneksi Togel menggunakan input checkbox */
+.menu-toggle input {
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-5px, -1px);
+  background-color: white;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-2px, 0);
+  background-color: white;
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+}
+
+/* Akhir Navbar */
+
+.body {
+  display: flex;
+  margin: 0 auto;
+  background-color: rgb(174, 208, 228);
+  width: 1000px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+/* Container satu */
+
+.body .container-satu {
+  display: flex;
+  padding-bottom: 90px;
+  box-sizing: border-box;
+  justify-content: center;
+  position: relative;
+}
+
+.body .container-satu .profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background-image: url(img/profile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: -30px;
+  margin-top: 20px;
+}
+
+.body .container-satu h1 {
+  color: rgb(8, 43, 199);
+  font-weight: bold;
+  position: absolute;
+  top: 220px;
+  right: 410px;
+}
+
+.body .container-satu .title {
+  display: flex;
+  /* width: 50px; */
+  color: rgb(18, 19, 22);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  position: absolute;
+  top: 255px;
+  right: 380px;
+}
+
+/* Akhir Container-satu */
+
+/* Container-dua */
+.container-dua {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.body .container-dua h3 {
+  /* justify-content: center; */
+}
+div.paragraph {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+div.paragraph p {
+  width: 400px;
+  margin-top: 20px;
+}
+
+div.paragraph p:nth-child(1) {
+  flex: 1;
+  margin-right: 50px;
+}
+
+div.paragraph p:nth-child(2) {
+  flex: 1;
+}
+/* Responsive Navbar */
+
+/* Jika Dibuka di Tablet Yang ukuran max-width 768 */
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+
+  .body {
+    width: 768px;
+  }
+
+  .body .container-satu h1 {
+    color: rgb(8, 43, 199);
+    font-weight: bold;
+    position: absolute;
+    top: 220px;
+    right: 305px;
+  }
+
+  .body .container-satu .title {
+    display: flex;
+    /* width: 50px; */
+    color: rgb(18, 19, 22);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 255px;
+    right: 280px;
+  }
+}
+
+/* Jika dibuka di Mobile/Handphone yang ukuran max-width 576 */
+
+@media screen and (max-width: 576px) {
+  nav ul {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: rgb(32, 171, 252);
+    z-index: 2;
+    transition: all 1s;
+    transform: translateY(-100%);
+  }
+
+  nav ul.slide {
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul li a {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    color: white;
+    line-height: 40px;
+  }
+
+  .body {
+    width: 500px;
+  }
+
+  .body .container-satu h1 {
+    color: rgb(8, 43, 199);
+    font-weight: bold;
+    position: absolute;
+    top: 220px;
+    right: 170px;
+  }
+
+  .body .container-satu .title {
+    display: flex;
+    /* width: 50px; */
+    color: rgb(18, 19, 22);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 255px;
+    right: 140px;
+  }
+
+  .paragraph {
+    flex-direction: column;
+  }
+}
